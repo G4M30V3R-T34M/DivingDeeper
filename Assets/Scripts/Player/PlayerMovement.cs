@@ -14,8 +14,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Transform groundCheck;
 
+    private SpriteRenderer spriteRenderer;
     private float horizontal;
     private bool isFacingRight;
+
+    private void Awake() {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
@@ -36,9 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip() {
         isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
+        spriteRenderer.flipX = isFacingRight;
     }
 
     public void Move(InputAction.CallbackContext context) {
