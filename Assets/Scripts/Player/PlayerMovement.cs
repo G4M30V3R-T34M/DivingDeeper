@@ -33,10 +33,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private bool IsGrounded() {
-        // LayerMask values are treated as binary so decimal representation are: 2^LayerNumber
-        // https://vionixstudio.com/2022/06/23/unity-layermask/
-        LayerMask layerMask = (int)Mathf.Pow(2, (int)Layer.Ground);
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, layerMask);
+        LayerMask layer = LayerMask.GetMask(Layer.Ground.ToString());
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, layer);
     }
 
     private void Flip() {
