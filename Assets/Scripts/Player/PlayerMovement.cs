@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private float horizontal;
-    private bool isFacingRight;
+    private bool isFacingRight { get => spriteRenderer.flipX; }
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,9 +25,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(horizontal * playerSettings.speed, rb.velocity.y);
-        if (!isFacingRight && horizontal > 0f) {
-            Flip();
-        } else if (isFacingRight && horizontal < 0f) {
+        if (!isFacingRight && horizontal > 0f ||
+            isFacingRight && horizontal < 0f) {
             Flip();
         }
     }
@@ -38,8 +37,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Flip() {
-        isFacingRight = !isFacingRight;
-        spriteRenderer.flipX = isFacingRight;
+        spriteRenderer.flipX = !spriteRenderer.flipX;
     }
 
     public void Move(InputAction.CallbackContext context) {
