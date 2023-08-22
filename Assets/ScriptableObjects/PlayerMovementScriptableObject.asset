@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa12187f84ba6dc4784950ab2fd97dc9, type: 3}
   m_Name: PlayerMovementScriptableObject
   m_EditorClassIdentifier: 
-  speed: 0
-  jumpPower: 0
+  speed: 8
+  jumpPower: 16
