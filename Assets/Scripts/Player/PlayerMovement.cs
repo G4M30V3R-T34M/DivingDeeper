@@ -17,9 +17,14 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private float horizontal;
     private bool isFacingRight { get => spriteRenderer.flipX; }
+    private LayerMask layer;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start() {
+        layer = LayerMask.GetMask(Layer.Ground.ToString());
     }
 
     void Update()
@@ -32,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private bool IsGrounded() {
-        LayerMask layer = LayerMask.GetMask(Layer.Ground.ToString());
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, layer);
     }
 
