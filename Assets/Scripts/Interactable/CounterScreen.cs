@@ -12,19 +12,18 @@ public class CounterScreen : Interactable
     string currentStatus;
     int index;
 
-    private void Start() {
+    protected override void Start() {
         index = 0;
         currentStatus = puzzleSettings.allStatus[index];
+        base.Start();
     }
 
     public override void Interact() {
         //currentStatus == winStatus ? puzzleSucceed.Raise() : puzzleNotSucceed.Raise();
         if (currentStatus == puzzleSettings.winStatus) {
             puzzleSettings.puzzleSucceed.Raise();
-            print("Succeed");
         } else {
             puzzleSettings.puzzleFail.Raise();
-            print("fail");
         }
     }
 
@@ -37,17 +36,13 @@ public class CounterScreen : Interactable
     }
 
     public void PreviousState() {
-        print("Prev state");
         index = index == 0 ? puzzleSettings.allStatus.Length-1 : index - 1;
         currentStatus = puzzleSettings.allStatus[index];
-        Debug.Log(currentStatus);
     }
 
     public void NextState() {
-        print("next state");
         index = index == puzzleSettings.allStatus.Length-1 ? 0 : index + 1;
         currentStatus = puzzleSettings.allStatus[index];
-        Debug.Log(currentStatus);
     }
 
 }

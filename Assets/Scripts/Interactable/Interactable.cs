@@ -26,7 +26,7 @@ public abstract class Interactable : MonoBehaviour
     }
 #endif
 
-    private void Start() {
+    protected virtual void Start() {
         Color.RGBToHSV(
             interactableFeedback.color,
             out currentHue, 

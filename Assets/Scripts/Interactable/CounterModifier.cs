@@ -13,7 +13,7 @@ public class CounterModifier : Interactable
     }
 
     public override void HoldInteract() {
-        modifierEvent.Raise(); ;
+        Interact();
     }
 
     public override void ReleaseHoldInteract() {
