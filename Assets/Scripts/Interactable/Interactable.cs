@@ -26,10 +26,6 @@ public abstract class Interactable : MonoBehaviour
     }
 #endif
 
-    private void Update() {
-        interactableFeedback.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue);
-    }
-
     protected virtual void Start() {
         Color.RGBToHSV(
             interactableFeedback.color,
