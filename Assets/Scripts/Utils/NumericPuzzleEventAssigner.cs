@@ -22,6 +22,10 @@ public class NumericPuzzleEventAssigner : MonoBehaviour
     GameEventListener nextEventListener;
     [SerializeField]
     StringGameEventListener textUpdateEventListener;
+    [SerializeField]
+    GameEventListener failEventListener;
+    [SerializeField]
+    GameEventListener succeedEventListener;
 
     private void Awake() {
         previousModifier.AssignGameEvent(puzzleSettings.previousStateEvent);
@@ -35,5 +39,11 @@ public class NumericPuzzleEventAssigner : MonoBehaviour
 
         textUpdateEventListener.Event = puzzleSettings.screenTextUpdateEvent;
         textUpdateEventListener.enabled = true;
+
+        failEventListener.Event = puzzleSettings.puzzleFail;
+        failEventListener.enabled = true;
+
+        succeedEventListener.Event = puzzleSettings.puzzleSucceed;
+        succeedEventListener.enabled = true;
     }
 }

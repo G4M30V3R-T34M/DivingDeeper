@@ -51,5 +51,4 @@ public class CounterScreen : Interactable
     public void UpdateText() {
         puzzleSettings.screenTextUpdateEvent.Raise(currentStatus);
     }
-
 }
