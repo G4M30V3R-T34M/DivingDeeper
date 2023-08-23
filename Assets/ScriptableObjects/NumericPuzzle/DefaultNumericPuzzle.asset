@@ -16,6 +16,7 @@ MonoBehaviour:
   previousStateEvent: {fileID: 11400000, guid: 59392668afa563a4f9a56b44e5301d4f, type: 2}
   puzzleSucceed: {fileID: 11400000, guid: 4b1afaeef1d795440a31cb1599ab3887, type: 2}
   puzzleFail: {fileID: 11400000, guid: cd10c7efb4e7f4441842e3875f5d71e5, type: 2}
+  screenTextUpdateEvent: {fileID: 11400000, guid: e0bd4c5d544c92f4a9b65b002f180412, type: 2}
   allStatus:
   - 0
   - 1

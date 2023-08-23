@@ -11,6 +11,7 @@ public class NumericPuzzleScriptableObject : ScriptableObject
     public GameEvent previousStateEvent;
     public GameEvent puzzleSucceed;
     public GameEvent puzzleFail;
+    public StringGameEvent screenTextUpdateEvent;
 
     [Header("Puzzle settings")]
     public string[] allStatus;

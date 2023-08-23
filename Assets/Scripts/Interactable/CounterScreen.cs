@@ -15,6 +15,7 @@ public class CounterScreen : Interactable
     protected override void Start() {
         index = 0;
         currentStatus = puzzleSettings.allStatus[index];
+        UpdateText();
         base.Start();
     }
 
@@ -38,11 +39,17 @@ public class CounterScreen : Interactable
     public void PreviousState() {
         index = index == 0 ? puzzleSettings.allStatus.Length-1 : index - 1;
         currentStatus = puzzleSettings.allStatus[index];
+        UpdateText();
     }
 
     public void NextState() {
         index = index == puzzleSettings.allStatus.Length-1 ? 0 : index + 1;
         currentStatus = puzzleSettings.allStatus[index];
+        UpdateText();
+    }
+
+    public void UpdateText() {
+        puzzleSettings.screenTextUpdateEvent.Raise(currentStatus);
     }
 
 }

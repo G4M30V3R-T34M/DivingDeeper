@@ -20,16 +20,20 @@ public class NumericPuzzleEventAssigner : MonoBehaviour
     GameEventListener previousEventListener;
     [SerializeField]
     GameEventListener nextEventListener;
+    [SerializeField]
+    StringGameEventListener textUpdateEventListener;
 
     private void Awake() {
         previousModifier.AssignGameEvent(puzzleSettings.previousStateEvent);
         nextModifier.AssignGameEvent(puzzleSettings.nextStateEvent);
 
         nextEventListener.Event = puzzleSettings.nextStateEvent;
-        print("Enable next");
         nextEventListener.enabled = true;
+
         previousEventListener.Event = puzzleSettings.previousStateEvent;
-        print("Enable prev");
         previousEventListener.enabled = true;
+
+        textUpdateEventListener.Event = puzzleSettings.screenTextUpdateEvent;
+        textUpdateEventListener.enabled = true;
     }
 }
