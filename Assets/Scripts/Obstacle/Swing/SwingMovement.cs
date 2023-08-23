@@ -18,7 +18,6 @@ public class SwingMovement : MonoBehaviour
         currentSpeed = swingSettings.speed;
         maxLeftPosition = transform.position.x - swingSettings.distanceFromCenter;
         maxRightPosition = transform.position.x + swingSettings.distanceFromCenter;
-        print(maxRightPosition);
         StartCoroutine(Swing());
     }
 
