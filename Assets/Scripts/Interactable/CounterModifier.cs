@@ -9,12 +9,11 @@ public class CounterModifier : Interactable
     GameEvent modifierEvent;
 
     public override void Interact() {
-        print("Raised");
         modifierEvent.Raise();
     }
 
     public override void HoldInteract() {
-        return;
+        modifierEvent.Raise(); ;
     }
 
     public override void ReleaseHoldInteract() {

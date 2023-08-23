@@ -29,7 +29,7 @@ public class CounterScreen : Interactable
     }
 
     public override void HoldInteract() {
-        return;
+        Interact();
     }
 
     public override void ReleaseHoldInteract() {
@@ -38,14 +38,14 @@ public class CounterScreen : Interactable
 
     public void PreviousState() {
         print("Prev state");
-        index = index == 0 ? puzzleSettings.allStatus.Length-1 : index + 1;
+        index = index == 0 ? puzzleSettings.allStatus.Length-1 : index - 1;
         currentStatus = puzzleSettings.allStatus[index];
         Debug.Log(currentStatus);
     }
 
     public void NextState() {
         print("next state");
-        index = index == puzzleSettings.allStatus.Length-1 ? 0 : index - 1;
+        index = index == puzzleSettings.allStatus.Length-1 ? 0 : index + 1;
         currentStatus = puzzleSettings.allStatus[index];
         Debug.Log(currentStatus);
     }
