@@ -142,8 +142,8 @@ GameObject:
   - component: {fileID: 5172750348974550846}
   - component: {fileID: 1879097136020757007}
   - component: {fileID: 2869966537463377543}
-  - component: {fileID: 3130814558301863107}
-  - component: {fileID: 4844854993112320004}
+  - component: {fileID: 3283800802891763898}
+  - component: {fileID: 9125319543124464883}
   - component: {fileID: 5253533834625856202}
   m_Layer: 8
   m_Name: Box
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableFeedback: {fileID: 2802140294665828236}
---- !u!114 &3130814558301863107
+--- !u!114 &3283800802891763898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4607874307084740232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Script: {fileID: 11500000, guid: ab8eabf398a9aa74989b70e6e13c7848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: fbc707c6943e4854abf4db88bee1357b, type: 2}
@@ -254,7 +254,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4844854993112320004
+--- !u!114 &9125319543124464883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4607874307084740232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Script: {fileID: 11500000, guid: ab8eabf398a9aa74989b70e6e13c7848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: 86f1f59d8d940074284b68dbd5858943, type: 2}
