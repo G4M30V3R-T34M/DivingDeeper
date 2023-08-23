@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerMovementScriptableObject
   m_EditorClassIdentifier: 
   speed: 8
-  jumpPower: 16
+  jumpPower: 8
