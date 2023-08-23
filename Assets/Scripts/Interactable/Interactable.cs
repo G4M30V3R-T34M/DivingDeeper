@@ -41,7 +41,6 @@ public abstract class Interactable : MonoBehaviour
         if (interactableFeedback != null) {
             currentSaturation += SATURATION_VARIATION;
             interactableFeedback.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue);
-            print(interactableFeedback.color);
         }
     }
 
@@ -51,7 +50,6 @@ public abstract class Interactable : MonoBehaviour
         if (interactableFeedback != null) {
             currentSaturation -= SATURATION_VARIATION;
             interactableFeedback.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue);
-            print(interactableFeedback.color);
         }
     }
 
