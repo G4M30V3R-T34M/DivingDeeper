@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5162875765048741514}
   - component: {fileID: 2189748382690627513}
   - component: {fileID: 1716896919257135240}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VerticalDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3709160820395799554}
   - component: {fileID: 2199497312702380659}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RotationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 390202829267348251}
   - component: {fileID: 5739249023323222490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
