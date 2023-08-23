@@ -86,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision) {
         if(collision.gameObject.layer == (int)Layer.Ladder) {
             isLadder = false;
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
         }
     }
 }
