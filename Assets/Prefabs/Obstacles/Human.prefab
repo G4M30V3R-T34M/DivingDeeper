@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 5546329694927558167}
   - component: {fileID: 3461411569226115631}
   - component: {fileID: 1548657411857000480}
+  - component: {fileID: 2697695396024006831}
+  - component: {fileID: 5604601562752771328}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -213,6 +215,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fearArea: {fileID: 3459265457687518720}
   slowdownArea: {fileID: 8884095683768082336}
+--- !u!114 &2697695396024006831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059762864307861836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4610dfee30f4e8b42b95e6f9af3a582f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1548657411857000480}
+        m_TargetAssemblyTypeName: HumanController, Assembly-CSharp
+        m_MethodName: LoseFearArea
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5604601562752771328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059762864307861836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 773a60aaddfc5284bbd34b9bbbdc81c5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1548657411857000480}
+        m_TargetAssemblyTypeName: HumanController, Assembly-CSharp
+        m_MethodName: LoseSlowdownArea
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8884095683768082336
 GameObject:
   m_ObjectHideFlags: 0
