@@ -23,8 +23,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isFacingRight { get => transform.localScale.x < 0; }
     private bool isLadder = false;
+    private bool isFeared = false;
+    private float endRunAwayX;
     private float speedFactor = 1;
     private LayerMask groundLayer;
+
+    private float FEAR_HORIZONTAL_VELOCITY = 1.2f;
 
     private void Start() {
         groundLayer = LayerMask.GetMask(Layer.Ground.ToString());
@@ -36,7 +40,12 @@ public class PlayerMovement : MonoBehaviour
             isFacingRight && horizontal < 0f) {
             Flip();
         }
+
+        if (isFeared) {
+            CheckIfTargetAchieved();
+        }
     }
+
     private void FixedUpdate() {
 
         float horizontalSpeed = horizontal * playerSettings.speed * speedFactor;
@@ -47,6 +56,15 @@ public class PlayerMovement : MonoBehaviour
         else {
             rb.gravityScale = gravityScale;
             rb.velocity = new Vector2(horizontalSpeed, rb.velocity.y);
+        }
+    }
+
+    private void CheckIfTargetAchieved() {
+        if (isFacingRight && transform.position.x > endRunAwayX) {
+            ResetFearSpeed();
+        }
+        if (!isFacingRight && transform.position.x < endRunAwayX) {
+            ResetFearSpeed();
         }
     }
 
@@ -61,6 +79,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Move(InputAction.CallbackContext context) {
+        if (isFeared) {
+            return;
+        }
         horizontal = context.ReadValue<Vector2>().x;
         if (isLadder) {
             vertical = context.ReadValue<Vector2>().y;
@@ -70,6 +91,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Jump(InputAction.CallbackContext context) {
+        if (isFeared) {
+            return;
+        }
         if (context.performed && IsGrounded()) {
             rb.velocity = new Vector2(rb.velocity.x, playerSettings.jumpPower);
         }
@@ -79,10 +103,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void SetFearSpeed(float xPosition) {
+        horizontal = FEAR_HORIZONTAL_VELOCITY;
+        if (isFacingRight) {
+            horizontal *= -1f;
+            endRunAwayX = xPosition - playerSettings.runAwayDistance;
+        }
+        else {
+            endRunAwayX = xPosition + playerSettings.runAwayDistance;
+        }
+    }
+
+    private void ResetFearSpeed() {
+        isFeared = false;
+        horizontal = 0;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.layer == (int)Layer.Ladder) {
             isLadder = true;
-        } else if(collision.gameObject.layer == (int)Layer.Fear) {
+        } else if(collision.gameObject.layer == (int)Layer.Slowdown) {
             speedFactor -= playerSettings.fearDecrementFactor;
         }
     }
@@ -91,8 +131,15 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.layer == (int)Layer.Ladder) {
             isLadder = false;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
-        } else if (collision.gameObject.layer == (int)Layer.Fear) {
+        } else if (collision.gameObject.layer == (int)Layer.Slowdown) {
             speedFactor += playerSettings.fearDecrementFactor;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.layer == (int)Layer.Fear) {
+            isFeared = true;
+            SetFearSpeed(collision.transform.position.x);
         }
     }
 }

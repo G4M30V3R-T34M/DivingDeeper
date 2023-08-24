@@ -6,4 +6,5 @@ public enum Layer
     Ladder = 9,
     Obstacle = 10,
     Fear = 11,
+    Slowdown = 12,
 }
