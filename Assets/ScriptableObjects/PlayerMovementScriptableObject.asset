@@ -15,3 +15,4 @@ MonoBehaviour:
   speed: 4
   jumpPower: 8
   fearDecrementFactor: 0.95
+  runAwayDistance: 4.5
