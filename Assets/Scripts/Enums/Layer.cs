@@ -7,4 +7,5 @@ public enum Layer
     Obstacle = 10,
     Fear = 11,
     Slowdown = 12,
+    Placeholder = 13,
 }
