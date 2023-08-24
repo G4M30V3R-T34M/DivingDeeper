@@ -15,29 +15,43 @@ public class PlayerMovement : MonoBehaviour
     Transform groundCheck;
 
     private SpriteRenderer spriteRenderer;
+
     private float horizontal;
+    private float vertical;
+    private float gravityScale;
+
     private bool isFacingRight { get => spriteRenderer.flipX; }
-    private LayerMask layer;
+    private bool isLadder = false;
+    private LayerMask groundLayer;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start() {
-        layer = LayerMask.GetMask(Layer.Ground.ToString());
+        groundLayer = LayerMask.GetMask(Layer.Ground.ToString());
+        gravityScale = rb.gravityScale;
     }
 
-    void Update()
-    {
-        rb.velocity = new Vector2(horizontal * playerSettings.speed, rb.velocity.y);
+    void Update() {
         if (!isFacingRight && horizontal > 0f ||
             isFacingRight && horizontal < 0f) {
             Flip();
         }
     }
+    private void FixedUpdate() {
+        if (isLadder) {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(horizontal * playerSettings.speed, vertical * playerSettings.speed);
+        }
+        else {
+            rb.gravityScale = gravityScale;
+            rb.velocity = new Vector2(horizontal * playerSettings.speed, rb.velocity.y);
+        }
+    }
 
     private bool IsGrounded() {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, layer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void Flip() {
@@ -46,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context) {
         horizontal = context.ReadValue<Vector2>().x;
+        if (isLadder) {
+            vertical = context.ReadValue<Vector2>().y;
+        } else {
+            vertical = 0f;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context) {
@@ -55,6 +74,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (context.canceled && rb.velocity.y > 0f) {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject.layer == (int)Layer.Ladder) {
+            isLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if(collision.gameObject.layer == (int)Layer.Ladder) {
+            isLadder = false;
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
         }
     }
 }
