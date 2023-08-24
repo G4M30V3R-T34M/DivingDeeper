@@ -5,4 +5,5 @@ public enum Layer
     Interactable = 8,
     Ladder = 9,
     Obstacle = 10,
+    Fear = 11,
 }

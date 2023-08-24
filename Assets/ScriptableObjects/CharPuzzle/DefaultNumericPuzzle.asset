@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a100fa6c354bd48b6b75fcef374287, type: 3}
   m_Name: DefaultNumericPuzzle
   m_EditorClassIdentifier: 
-  solution: []
+  solution:
+  - A
+  - B
+  - C

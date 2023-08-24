@@ -1,3 +1,4 @@
+using FeTo.SOArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // This class do too many things
+    // TODO divide responsabilities
     [SerializeField]
     PlayerMovementScriptableObject playerSettings;
 
@@ -14,19 +17,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Transform groundCheck;
 
-    private SpriteRenderer spriteRenderer;
-
     private float horizontal;
     private float vertical;
     private float gravityScale;
 
     private bool isFacingRight { get => transform.localScale.x < 0; }
     private bool isLadder = false;
+    private float speedFactor = 1;
     private LayerMask groundLayer;
-
-    private void Awake() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
     private void Start() {
         groundLayer = LayerMask.GetMask(Layer.Ground.ToString());
@@ -40,13 +38,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     private void FixedUpdate() {
+
+        float horizontalSpeed = horizontal * playerSettings.speed * speedFactor;
         if (isLadder) {
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(horizontal * playerSettings.speed, vertical * playerSettings.speed);
+            rb.velocity = new Vector2(horizontalSpeed, vertical * playerSettings.speed);
         }
         else {
             rb.gravityScale = gravityScale;
-            rb.velocity = new Vector2(horizontal * playerSettings.speed, rb.velocity.y);
+            rb.velocity = new Vector2(horizontalSpeed, rb.velocity.y);
         }
     }
 
@@ -82,6 +82,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.layer == (int)Layer.Ladder) {
             isLadder = true;
+        } else if(collision.gameObject.layer == (int)Layer.Fear) {
+            speedFactor -= playerSettings.fearDecrementFactor;
         }
     }
 
@@ -89,6 +91,8 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.layer == (int)Layer.Ladder) {
             isLadder = false;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
+        } else if (collision.gameObject.layer == (int)Layer.Fear) {
+            speedFactor += playerSettings.fearDecrementFactor;
         }
     }
 }
