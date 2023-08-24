@@ -5,8 +5,6 @@ using UnityEngine;
 public class BoxPlaceholder : MonoBehaviour
 {
     [SerializeField]
-    BoxScriptableObject placeholderSettings;
-    [SerializeField]
     BoxPuzzleController puzzleController;
     [SerializeField]
     int position;
