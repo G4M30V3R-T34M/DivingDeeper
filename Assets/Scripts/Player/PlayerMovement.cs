@@ -139,4 +139,10 @@ public class PlayerMovement : MonoBehaviour
             speedFactor += playerSettings.fearDecrementFactor;
         } 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.layer == (int)Layer.Interactable) {
+            ResetFearSpeed();
+        }
+    }
 }

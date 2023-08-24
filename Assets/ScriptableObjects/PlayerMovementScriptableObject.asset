@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jumpPower: 8
-  fearDecrementFactor: 0.95
+  fearDecrementFactor: 0.6
   runAwayDistance: 4.5
