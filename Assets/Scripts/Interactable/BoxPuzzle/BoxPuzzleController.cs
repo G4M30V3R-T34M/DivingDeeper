@@ -62,8 +62,8 @@ public class BoxPuzzleController : MonoBehaviour
 
     private void BlockResult() {
         for(int i = 0; i < placeholders.Length; i++) {
-            placeholders[i].BlockPlacedBox();
             placeholders[i].SucceedAnimation();
+            placeholders[i].BlockPlacedBox();
         }
     }
 
