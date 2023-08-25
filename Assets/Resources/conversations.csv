@@ -1,7 +1,5 @@
 Code,Conversations,P = Psychologist,M = Main Character,Character#Text ==> P#Text said by phychologist,,,
-aB0,"P#Welcome, please, take a seat.
-How may I assist you?",M#Hello ... thanks ... sorry ... I'll sit ... ,"P#Take a deep breath, I'm here to help.
-Tell me, what is bothering you?",M#Well ... you see ... ,,,
+aB0,"P#Welcome, please, take a seat. How may I assist you?",M#Hello ... thanks ... sorry ... I'll sit ... ,"P#Take a deep breath, I'm here to help. Tell me, what is bothering you?",M#Well ... you see ... ,,,
 aB1,M#I'm not sure where to start ... I think I'm afraid ...,"P#That's okay, could you tell me a little bit about your daily life?",M#Yes ... I have an office job ... ,,,,
 aA0,"M#That's where I go daily, a place full of people",P#Full of people? Is that something bad?,M#Well... I don't fell comfortable aroud people.,P#Let's take some steps back. Would you be able to remember the first time you felt uncomfortable around people?,,,
 aI0,M#That would probably be it ... the first time I remember I felt fear around people,"P#We're at a park, in your childhood. What happened?","M#At first, I was playing alone on the swings.",,,,
