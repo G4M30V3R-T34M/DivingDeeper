@@ -1,4 +1,3 @@
-using FeTo.ServiceLocator;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,7 +23,7 @@ public class QuestBehaviour : MonoBehaviour
 
     private void Start()
     {
-        questManager = ServiceLocator.Instance.GetService<IQuestManager>();
+        questManager = QuestManager.Instance;
         if (questManager.IsBloqued(quest.Id))
         {
             OnBlocked?.Invoke();

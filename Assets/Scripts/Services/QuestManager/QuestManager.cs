@@ -1,12 +1,13 @@
+using FeTo.Singleton;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class QuestManager : IQuestManager
+public class QuestManager : SingletonPersistent<QuestManager>, IQuestManager
 {
-    private readonly Dictionary<string, QuestData> quests;
+    private Dictionary<string, QuestData> quests;
 
-    public QuestManager()
+    private void Start()
     {
         quests = new Dictionary<string, QuestData>();
         LoadQuests();
