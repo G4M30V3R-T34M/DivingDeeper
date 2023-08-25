@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CharDisplayController: Interactable
+public class CharDisplayController : Interactable
 {
     [SerializeField]
     TextMeshProUGUI text;
@@ -16,28 +14,36 @@ public class CharDisplayController: Interactable
 
     Collider2D displayCollider;
 
-    protected override void Awake() {
+    protected void Awake()
+    {
+#if UNITY_EDITOR
         base.Awake();
+#endif
         displayCollider = GetComponent<Collider2D>();
     }
 
-    public override void Interact() {
+    public override void Interact()
+    {
         puzzle.UpdatePuzlePosition(position);
     }
 
-    public override void HoldInteract() {
+    public override void HoldInteract()
+    {
         puzzle.UpdatePuzlePosition(position);
     }
 
-    public override void ReleaseHoldInteract() {
+    public override void ReleaseHoldInteract()
+    {
         return;
     }
 
-    public void UpdateInfo(string value) {
+    public void UpdateInfo(string value)
+    {
         text.SetText(value);
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         displayCollider.enabled = false;
     }
 }
