@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3390a91bbf12b43bc47a808a016a53, type: 3}
   m_Name: Q02
   m_EditorClassIdentifier: 
-  id: Q02
-  nextIds:
-  - Q03
-  status: 0
-  startStatus: 0
+  _previousQuestsAmount: 1
+  _startStatus: 0
+  _nextQuests: []
+  _status: 1
+  _previousQuestsCompleted: 0

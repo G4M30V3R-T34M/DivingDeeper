@@ -1,46 +1,44 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QuestManager : IQuestManager
 {
-    private readonly Dictionary<string, QuestScriptableObject> quests;
+    private readonly Dictionary<string, QuestData> quests;
 
     public QuestManager()
     {
-        quests = new Dictionary<string, QuestScriptableObject>();
+        quests = new Dictionary<string, QuestData>();
         LoadQuests();
     }
 
+    /*** TPM ***/
+    public QuestData GetQuest(string id) => quests[id];
+    /*** END TMP ***/
+
     public void Complete(string id)
     {
-        if (quests.TryGetValue(id, out QuestScriptableObject quest))
-        {
-            quest.status = QuestStatus.Completed;
-            foreach (string nextId in quest.nextIds) Activate(nextId);
-        }
-        // else - throw ?? 
+        quests[id].Status = QuestStatus.Completed;
+        foreach (string nextQuestId in quests[id].NextQuests) { AdvanceLockedQuest(nextQuestId); }
     }
 
-    public void Activate(string id)
+    private void AdvanceLockedQuest(string id)
     {
-        if (quests.TryGetValue(id, out QuestScriptableObject quest))
-        {
-            quest.status = QuestStatus.Available;
-        }
-        // else - throw ?? 
+        quests[id].PreviousQuestsCompleted += 1;
+        if (quests[id].IsUnlockable()) { quests[id].Status = QuestStatus.Available; }
     }
 
     public bool IsBloqued(string id) =>
-        quests.TryGetValue(id, out QuestScriptableObject quest) &&
-        quest.status == QuestStatus.Bloqued;
+        quests.TryGetValue(id, out QuestData quest) &&
+        quest.Status == QuestStatus.Bloqued;
 
     public bool IsAvailable(string id) =>
-        quests.TryGetValue(id, out QuestScriptableObject quest) &&
-        quest.status == QuestStatus.Available;
+        quests.TryGetValue(id, out QuestData quest) &&
+        quest.Status == QuestStatus.Available;
 
     public bool IsCompleted(string id) =>
-        quests.TryGetValue(id, out QuestScriptableObject quest) &&
-        quest.status == QuestStatus.Completed;
+        quests.TryGetValue(id, out QuestData quest) &&
+        quest.Status == QuestStatus.Completed;
 
     public void ResetQuests()
     {
@@ -54,11 +52,11 @@ public class QuestManager : IQuestManager
 
         foreach (QuestScriptableObject quest in questScriptables)
         {
-            quest.status = quest.startStatus;
-            quests.Add(quest.id, quest);
-#if UNITY_EDITOR
-            Debug.Log($"Added quest {quest.id} with nextIds {quest.nextIds[0]} status {quest.status}");
-#endif
+            quests.Add(quest.Id, new QuestData(
+                quest.Id,
+                quest.previousQuestsAmount,
+                quest.startStatus,
+                quest.nextQuests.Select(quest => quest.Id).ToList()));
         }
     }
 }

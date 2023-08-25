@@ -4,8 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "QuestScriptableObject", menuName = "Scriptables/QuestScriptableObject")]
 public class QuestScriptableObject : ScriptableObject
 {
-    public string id;
-    public List<string> nextIds;
-    public QuestStatus status = QuestStatus.Bloqued;
+    public int previousQuestsAmount = 1;
     public QuestStatus startStatus = QuestStatus.Bloqued;
+    public List<QuestScriptableObject> nextQuests;
+
+    public string Id { get => this.name; }
 }
