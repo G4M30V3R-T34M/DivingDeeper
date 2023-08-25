@@ -1,10 +1,14 @@
 using FeTo.Singleton;
+using FeTo.SOArchitecture;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class QuestManager : SingletonPersistent<QuestManager>, IQuestManager
 {
+    [SerializeField]
+    StringGameEvent questAvailable, questCompleted;
+
     private Dictionary<string, QuestData> quests;
 
     private void Start()
@@ -20,13 +24,18 @@ public class QuestManager : SingletonPersistent<QuestManager>, IQuestManager
     public void Complete(string id)
     {
         quests[id].Status = QuestStatus.Completed;
+        questCompleted.Raise(id);
         foreach (string nextQuestId in quests[id].NextQuests) { AdvanceLockedQuest(nextQuestId); }
     }
 
     private void AdvanceLockedQuest(string id)
     {
         quests[id].PreviousQuestsCompleted += 1;
-        if (quests[id].IsUnlockable()) { quests[id].Status = QuestStatus.Available; }
+        if (quests[id].IsUnlockable())
+        {
+            quests[id].Status = QuestStatus.Available;
+            questAvailable.Raise(id);
+        }
     }
 
     public bool IsBloqued(string id) =>
