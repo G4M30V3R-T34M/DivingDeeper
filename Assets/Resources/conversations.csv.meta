@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 3c5735d8b9a2b2547928bc3e88270f9c
+=======
+guid: 9696f7e9f56b8754c8fb0bc709cda6e5
+>>>>>>> a927a9d... Create test QuestScriptableObject
 TextScriptImporter:
   externalObjects: {}
   userData: 
