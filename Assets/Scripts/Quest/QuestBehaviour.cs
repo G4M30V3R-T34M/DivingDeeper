@@ -17,10 +17,6 @@ public class QuestBehaviour : MonoBehaviour
 
     IQuestManager questManager;
 
-    private void Awake()
-    {
-    }
-
     private void Start()
     {
         questManager = QuestManager.Instance;
