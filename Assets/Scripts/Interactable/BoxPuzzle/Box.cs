@@ -18,7 +18,7 @@ public class Box : Interactable
     private Collider2D triggerCollider;
     private Animator animatorController;
 
-    private void Awake()
+    protected override void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         triggerCollider = gameObject.GetComponent<Collider2D>();

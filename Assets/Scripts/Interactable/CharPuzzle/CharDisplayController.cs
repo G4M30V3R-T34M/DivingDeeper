@@ -14,12 +14,12 @@ public class CharDisplayController : Interactable
 
     Collider2D displayCollider;
 
-    protected void Awake()
+    protected override void Awake()
     {
+        displayCollider = GetComponent<Collider2D>();
 #if UNITY_EDITOR
         base.Awake();
 #endif
-        displayCollider = GetComponent<Collider2D>();
     }
 
     public override void Interact()
