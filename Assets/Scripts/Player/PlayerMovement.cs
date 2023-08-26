@@ -172,7 +172,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.layer == (int)Layer.Interactable)
         {
-            ResetFearSpeed();
+            if (isFeared)
+            {
+                ResetFearSpeed();
+            }
         }
     }
 }
