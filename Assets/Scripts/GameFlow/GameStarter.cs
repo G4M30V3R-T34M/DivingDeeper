@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameStarter : MonoBehaviour
 {
@@ -29,6 +28,6 @@ public class GameStarter : MonoBehaviour
     private IEnumerator LoadNextScene()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene((int)nextScene);
+        SceneTransitions.Instance.LoadScene((int)nextScene);
     }
 }
