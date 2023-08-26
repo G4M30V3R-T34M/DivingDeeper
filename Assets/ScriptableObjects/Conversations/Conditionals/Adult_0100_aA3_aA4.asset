@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d151fba999b4947bb7ebcb05d51c1b, type: 3}
+  m_Name: Adult_0100_aA3_aA4
+  m_EditorClassIdentifier: 
+  triggerQuest: {fileID: 11400000, guid: b6f48091aa4e72644bc83f8b160b1d98, type: 2}
+  conditionalQuest: {fileID: 11400000, guid: 4ffe48ea93876fc4d8b6621251b72b14, type: 2}
+  conditionalCompletedConversation: {fileID: 11400000, guid: a1cbb40a774b26644b82009a5d48205a, type: 2}
+  conditionalFailedConversation: {fileID: 11400000, guid: b7a309f5ddf84f243a46bfdc16666d63, type: 2}

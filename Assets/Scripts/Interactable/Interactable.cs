@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Collider2D))]
 public abstract class Interactable : MonoBehaviour
@@ -16,34 +13,43 @@ public abstract class Interactable : MonoBehaviour
 
     float SATURATION_VARIATION = 50f;
 
+    protected virtual void Awake()
+    {
 #if UNITY_EDITOR
-    protected virtual void Awake() {
-        if(gameObject.layer != (int)Layer.Interactable) {
+        if (gameObject.layer != (int)Layer.Interactable)
+        {
             throw new Exception(
                 String.Format("Layer of {0} must be Interactable", gameObject.name)
             );
         }
-    }
 #endif
+    }
 
-    protected virtual void Start() {
+    protected virtual void Start()
+    {
         Color.RGBToHSV(
             interactableFeedback.color,
-            out currentHue, 
+            out currentHue,
             out currentSaturation,
             out currentValue
         );
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collision) {
-        if (interactableFeedback != null && collision.gameObject.layer == (int)Layer.Player) {
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (interactableFeedback != null && collision.gameObject.layer == (int)Layer.Player)
+        {
             currentSaturation += SATURATION_VARIATION;
             interactableFeedback.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue);
         }
     }
 
-    protected virtual void OnTriggerExit2D(Collider2D collision) {
-        if (interactableFeedback != null && collision.gameObject.layer == (int)Layer.Player) {
+    protected virtual void OnTriggerExit2D(Collider2D collision)
+    {
+        // As "Interactable" layer just collide with player we don't need to check
+        // collision layer
+        if (interactableFeedback != null && collision.gameObject.layer == (int)Layer.Player)
+        {
             currentSaturation -= SATURATION_VARIATION;
             interactableFeedback.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue);
         }
