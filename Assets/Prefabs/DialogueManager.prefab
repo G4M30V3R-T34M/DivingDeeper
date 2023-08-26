@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8884695340983120440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8020776223414039996}
+  - component: {fileID: 3320598725874567482}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8020776223414039996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884695340983120440}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 864.6772, y: 264.52173, z: 5.866297}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3320598725874567482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884695340983120440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403d5f9f4a457e742b800d53509dfacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicQuestDialogs:
+  - {fileID: 11400000, guid: a81e62698e02db54c9605600c5b02a9f, type: 2}
+  - {fileID: 11400000, guid: 2c41ad80f8a64cc4ba6391b666f14999, type: 2}
+  - {fileID: 11400000, guid: 2128cb2001e04304095cfd80c2427f79, type: 2}
+  - {fileID: 11400000, guid: 736c0c32e1800f7469f5fa6986f48863, type: 2}
+  - {fileID: 11400000, guid: 7bb530ab5003a2542a9aac006f5bf602, type: 2}
+  conditionalQuestDialogs:
+  - {fileID: 11400000, guid: af9cf2b23059b9f4392130e2d3d3e92b, type: 2}
+  - {fileID: 11400000, guid: aafa80b53ab07ba40a6837190c920b83, type: 2}
+  - {fileID: 11400000, guid: 585cf0e4e8a5fc940b128221e4b60815, type: 2}
