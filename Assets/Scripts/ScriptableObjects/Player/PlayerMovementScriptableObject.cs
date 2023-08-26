@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerMovementScriptableObject", menuName = "Scriptables/PlayerMovementScriptableObject")]
@@ -8,6 +5,6 @@ public class PlayerMovementScriptableObject : ScriptableObject
 {
     public float speed;
     public float jumpPower;
-    public float fearDecrementFactor;
+    public float fearSpeed;
     public float runAwayDistance;
 }
