@@ -1441,7 +1441,7 @@ PrefabInstance:
     - target: {fileID: 7660229461891027788, guid: 2bc973e369aa27346a458cc4d82543ac, type: 3}
       propertyPath: quest
       value: 
-      objectReference: {fileID: 11400000, guid: 1444cbca3686d4e44a0d9b97ea39841d, type: 2}
+      objectReference: {fileID: 11400000, guid: 8c08fa8ab70825747b81809c12870145, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e723eb814c0478f4cb18ddc2b50202f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: 1444cbca3686d4e44a0d9b97ea39841d, type: 2}
+  quest: {fileID: 11400000, guid: 8c08fa8ab70825747b81809c12870145, type: 2}
   OnBlocked:
     m_PersistentCalls:
       m_Calls:
@@ -2326,7 +2326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e723eb814c0478f4cb18ddc2b50202f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: 1444cbca3686d4e44a0d9b97ea39841d, type: 2}
+  quest: {fileID: 11400000, guid: 8c08fa8ab70825747b81809c12870145, type: 2}
   OnBlocked:
     m_PersistentCalls:
       m_Calls: []
