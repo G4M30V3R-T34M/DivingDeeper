@@ -14,11 +14,9 @@ public class Box : Interactable
     private float onHoldYOffset = 0.6f;
 
     private Rigidbody2D rb;
-    private float mass;
 
     private void Awake() {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        mass = rb.mass;
     }
 
     public override void Interact() {
@@ -39,7 +37,6 @@ public class Box : Interactable
         transform.parent = null;
         rb.simulated = true;
         rb.isKinematic = false;
-        rb.mass = mass;
         releaseListener.enabled = false;
     }
 
