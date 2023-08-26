@@ -36,18 +36,14 @@ public abstract class Interactable : MonoBehaviour
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
-        // As "Interactable" layer just collide with player we don't need to check
-        // collision layer
-        if (interactableFeedback != null) {
+        if (interactableFeedback != null && collision.gameObject.layer == (int)Layer.Player) {
             currentSaturation += SATURATION_VARIATION;
             interactableFeedback.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue);
         }
     }
 
     protected virtual void OnTriggerExit2D(Collider2D collision) {
-        // As "Interactable" layer just collide with player we don't need to check
-        // collision layer
-        if (interactableFeedback != null) {
+        if (interactableFeedback != null && collision.gameObject.layer == (int)Layer.Player) {
             currentSaturation -= SATURATION_VARIATION;
             interactableFeedback.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue);
         }

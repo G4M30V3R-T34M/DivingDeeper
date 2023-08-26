@@ -46,4 +46,8 @@ public class CharDisplayController : Interactable
     {
         displayCollider.enabled = false;
     }
+
+    private void OnEnable() {
+        displayCollider.enabled = true;
+    }
 }
