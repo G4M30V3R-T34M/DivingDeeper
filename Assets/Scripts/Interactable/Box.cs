@@ -1,3 +1,4 @@
+using FeTo.SOArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Box : Interactable
 {
+    [SerializeField]
+    GameEventListener releaseListener;
+
     Transform playerTransform;
 
     private float onHoldYOffset = 0.6f;
@@ -27,6 +31,7 @@ public class Box : Interactable
             transform.position = new Vector3(transform.position.x, transform.position.y + onHoldYOffset);
             transform.parent = playerTransform;
             rb.simulated = false;
+            releaseListener.enabled = true;
         }
     }
 
@@ -35,6 +40,7 @@ public class Box : Interactable
         rb.simulated = true;
         rb.isKinematic = false;
         rb.mass = mass;
+        releaseListener.enabled = false;
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision) {

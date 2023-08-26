@@ -142,9 +142,9 @@ GameObject:
   - component: {fileID: 5172750348974550846}
   - component: {fileID: 1879097136020757007}
   - component: {fileID: 2869966537463377543}
-  - component: {fileID: 3130814558301863107}
-  - component: {fileID: 4844854993112320004}
+  - component: {fileID: 3283800802891763898}
   - component: {fileID: 5253533834625856202}
+  - component: {fileID: 5277260457421560701}
   m_Layer: 8
   m_Name: Box
   m_TagString: Untagged
@@ -160,7 +160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4607874307084740232}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.23, y: -2.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -226,7 +226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableFeedback: {fileID: 2802140294665828236}
---- !u!114 &3130814558301863107
+  releaseListener: {fileID: 5277260457421560701}
+--- !u!114 &3283800802891763898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4607874307084740232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Script: {fileID: 11500000, guid: ab8eabf398a9aa74989b70e6e13c7848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: fbc707c6943e4854abf4db88bee1357b, type: 2}
@@ -245,34 +246,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2869966537463377543}
         m_TargetAssemblyTypeName: Box, Assembly-CSharp
         m_MethodName: HoldInteract
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4844854993112320004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4607874307084740232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 86f1f59d8d940074284b68dbd5858943, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2869966537463377543}
-        m_TargetAssemblyTypeName: Box, Assembly-CSharp
-        m_MethodName: ReleaseHoldInteract
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -309,6 +282,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &5277260457421560701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607874307084740232}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 86f1f59d8d940074284b68dbd5858943, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2869966537463377543}
+        m_TargetAssemblyTypeName: Box, Assembly-CSharp
+        m_MethodName: ReleaseHoldInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &7685782833187248444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -321,13 +322,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableIndicator
       objectReference: {fileID: 0}
+    - target: {fileID: 5497295374436970160, guid: 72ac7ec03d4b7c84d95505af5d140d6f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497295374436970160, guid: 72ac7ec03d4b7c84d95505af5d140d6f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -557139635
+      objectReference: {fileID: 0}
     - target: {fileID: 6056612088775630254, guid: 72ac7ec03d4b7c84d95505af5d140d6f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6056612088775630254, guid: 72ac7ec03d4b7c84d95505af5d140d6f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96000004
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 6056612088775630254, guid: 72ac7ec03d4b7c84d95505af5d140d6f, type: 3}
       propertyPath: m_LocalPosition.z

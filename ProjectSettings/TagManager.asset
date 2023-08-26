@@ -15,7 +15,7 @@ TagManager:
   - Player
   - Interactable
   - Ladder
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -43,6 +43,12 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 331891609
+    locked: 0
+  - name: Background_UI
+    uniqueID: 2259517593
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3737827661
     locked: 0
   - name: Player
     uniqueID: 360066657

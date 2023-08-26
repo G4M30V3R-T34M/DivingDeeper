@@ -131,10 +131,10 @@ PrefabInstance:
       addedObject: {fileID: 2609961362663221387}
     - targetCorrespondingSourceObject: {fileID: 6558342172353628042, guid: 176d3e014a7580946a603d9d9de3807b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6137176453732692774}
+      addedObject: {fileID: 4709786261938535705}
     - targetCorrespondingSourceObject: {fileID: 6558342172353628042, guid: 176d3e014a7580946a603d9d9de3807b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2396976063807416018}
+      addedObject: {fileID: 8377648329020473307}
   m_SourcePrefab: {fileID: 100100000, guid: 176d3e014a7580946a603d9d9de3807b, type: 3}
 --- !u!1 &1498688080486019008 stripped
 GameObject:
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableFeedback: {fileID: 7624574574382262564}
   conversationEvent: {fileID: 11400000, guid: 32e0a8495bdf0fa44bfc68d21016d29b, type: 2}
---- !u!114 &6137176453732692774
+--- !u!114 &4709786261938535705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498688080486019008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Script: {fileID: 11500000, guid: ab8eabf398a9aa74989b70e6e13c7848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: 0e9805dc46a4356408d802d7b16bea47, type: 2}
@@ -183,7 +183,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2396976063807416018
+--- !u!114 &8377648329020473307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498688080486019008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Script: {fileID: 11500000, guid: ab8eabf398a9aa74989b70e6e13c7848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: fbc707c6943e4854abf4db88bee1357b, type: 2}
