@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 226773518569001132}
   - component: {fileID: 5888024838623847759}
   - component: {fileID: 9019379991708492690}
+  - component: {fileID: 5415250249017326341}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -108,7 +109,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 360066657
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 2026716838, guid: bba4d6643d90b174096da72b99c901c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -314,6 +315,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 172af7ec-bd12-4467-a9d3-1f48cddeeb39
     m_ActionName: Player/Interact[/Keyboard/e,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5415250249017326341}
+        m_TargetAssemblyTypeName: PlayerTalkController, Assembly-CSharp
+        m_MethodName: TalkPerformed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7c04a261-b9b2-429e-8aae-696488c30372
+    m_ActionName: Player/Talk[/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -349,3 +366,17 @@ MonoBehaviour:
   playerInteractEvent: {fileID: 11400000, guid: 0e9805dc46a4356408d802d7b16bea47, type: 2}
   playerHoldEvent: {fileID: 11400000, guid: fbc707c6943e4854abf4db88bee1357b, type: 2}
   playerHoldReleaseEvent: {fileID: 11400000, guid: 86f1f59d8d940074284b68dbd5858943, type: 2}
+--- !u!114 &5415250249017326341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6298125103959634524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8efb0cafc0aac64a8d76c8fa96fa130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TalkGameEvent: {fileID: 11400000, guid: 3882b3657d730924cb4b3782e338f07d, type: 2}
+  minTimeBetweenTalkInteractions: 1
