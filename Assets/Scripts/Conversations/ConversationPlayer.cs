@@ -57,6 +57,7 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
         } else if (isWriting)
         {
             isWriting = false;
+            continueObject.SetActive(true);
             StopAllCoroutines();
             dialogueText.text = currentConversation.conversationParts[currentConversationPart].text;
             PerformConversationEndChecks();

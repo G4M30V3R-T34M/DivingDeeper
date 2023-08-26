@@ -15,7 +15,7 @@ public class PlayerTalkController : MonoBehaviour
 
     public void TalkPerformed(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && talkAvailable)
         {
             TalkGameEvent.Raise();
             talkAvailable = false;
