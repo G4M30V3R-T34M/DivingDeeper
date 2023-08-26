@@ -51,6 +51,10 @@ public class Box : Interactable
         rb.simulated = true;
         rb.isKinematic = false;
         releaseListener.enabled = false;
+        // Ensure box is well oriented
+        Vector3 localScale = transform.localScale;
+        localScale.x = 1f;
+        transform.localScale = localScale;
     }
 
     public string GetID() {

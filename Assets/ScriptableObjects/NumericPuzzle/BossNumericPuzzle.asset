@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e52a09b8331a74f9af27ba0cbe9c54, type: 3}
+  m_Name: BossNumericPuzzle
+  m_EditorClassIdentifier: 
+  nextStateEvent: {fileID: 11400000, guid: b652fd94a000cf54b87506ca91075698, type: 2}
+  previousStateEvent: {fileID: 11400000, guid: e4669aa76201c61449e256b6112c247c, type: 2}
+  puzzleSucceed: {fileID: 11400000, guid: 4427a08b55fcb1948bfafb0265b7ae6c, type: 2}
+  puzzleFail: {fileID: 11400000, guid: a9d6613bb7451cf498f4dfb40bd1f61c, type: 2}
+  screenTextUpdateEvent: {fileID: 11400000, guid: 265aa3384cb262149be3d67261eb1e2d, type: 2}
+  allStatus:
+  - ' '
+  - VERY
+  - REALLY
+  - NOT
+  winStatus: NOT

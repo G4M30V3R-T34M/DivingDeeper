@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4ae8f5d15c3cf4397d1a151089c6f6, type: 3}
+  m_Name: MathConfig
+  m_EditorClassIdentifier: 
+  solution:
+  - {fileID: 11400000, guid: f18de8f0e48632a4089d6be0c9a56727, type: 2}
+  - {fileID: 11400000, guid: 60e9aca14a72dd8428ea822a85e8c3ad, type: 2}
+  - {fileID: 11400000, guid: d12e406221dfd9e4abfc224071613e63, type: 2}
+  - {fileID: 11400000, guid: 11d80e27932083c42b5fb3f520563da3, type: 2}

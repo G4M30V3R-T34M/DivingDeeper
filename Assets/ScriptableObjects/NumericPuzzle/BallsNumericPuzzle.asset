@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e52a09b8331a74f9af27ba0cbe9c54, type: 3}
+  m_Name: BallsNumericPuzzle
+  m_EditorClassIdentifier: 
+  nextStateEvent: {fileID: 11400000, guid: 8ff2d8a6c172a7d4b9e5cb62cf44413b, type: 2}
+  previousStateEvent: {fileID: 11400000, guid: 3683bcae671ad0c40a92b5c948121cba, type: 2}
+  puzzleSucceed: {fileID: 11400000, guid: 70ec8efa9de60e446a6851df313a59c8, type: 2}
+  puzzleFail: {fileID: 11400000, guid: 1d4b031a09cc5ad4f844f93ced15641b, type: 2}
+  screenTextUpdateEvent: {fileID: 11400000, guid: cea082ec390812e4da07f1d7e676c9ea, type: 2}
+  allStatus:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  winStatus: 3
