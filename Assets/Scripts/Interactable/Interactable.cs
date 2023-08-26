@@ -17,7 +17,7 @@ public abstract class Interactable : MonoBehaviour
     float SATURATION_VARIATION = 50f;
 
 #if UNITY_EDITOR
-    private void Awake() {
+    protected virtual void Awake() {
         if(gameObject.layer != (int)Layer.Interactable) {
             throw new Exception(
                 String.Format("Layer of {0} must be Interactable", gameObject.name)
