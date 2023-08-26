@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 9d2a13382b5a4d54293a56f5c96a5566
+=======
+guid: 23e6a5fb2d0788e4081ffeb9d3f61d2f
+>>>>>>> a927a9d... Create test QuestScriptableObject
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
