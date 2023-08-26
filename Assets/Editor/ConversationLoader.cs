@@ -34,7 +34,7 @@ public class ConversationLoader
     {
         TextAsset asset = Resources.Load<TextAsset>("CSV/Conversations");
         string[] lines = asset.text.Split('\n');
-        lines = lines.Skip(1).Take(lines.Length - 1 - 1).ToArray();
+        lines = lines.Skip(1).Take(lines.Length - 1).ToArray();
 
         return lines;
     }
