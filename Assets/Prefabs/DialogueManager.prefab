@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8020776223414039996}
   - component: {fileID: 3320598725874567482}
+  - component: {fileID: 8793950462797694275}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -50,7 +51,36 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2128cb2001e04304095cfd80c2427f79, type: 2}
   - {fileID: 11400000, guid: 736c0c32e1800f7469f5fa6986f48863, type: 2}
   - {fileID: 11400000, guid: 7bb530ab5003a2542a9aac006f5bf602, type: 2}
+  - {fileID: 11400000, guid: f952602d9af09fe4baadf22d15d111b8, type: 2}
   conditionalQuestDialogs:
   - {fileID: 11400000, guid: af9cf2b23059b9f4392130e2d3d3e92b, type: 2}
   - {fileID: 11400000, guid: aafa80b53ab07ba40a6837190c920b83, type: 2}
   - {fileID: 11400000, guid: 585cf0e4e8a5fc940b128221e4b60815, type: 2}
+--- !u!114 &8793950462797694275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884695340983120440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaae6c3b9524f83418b2ac51b75ac472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 75f0d0e7b20d27b49a0a0c7c05d5d6b2, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3320598725874567482}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: CheckQuestCompleted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
