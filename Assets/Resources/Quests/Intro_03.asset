@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Intro_03
   m_EditorClassIdentifier: 
   previousQuestsAmount: 1
-  startStatus: 1
+  startStatus: 0
   nextQuests:
   - {fileID: 11400000, guid: 1444cbca3686d4e44a0d9b97ea39841d, type: 2}
