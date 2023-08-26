@@ -17,3 +17,4 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 11400000, guid: 8fb537216710db242ae788532235430e, type: 2}
   - {fileID: 11400000, guid: 3cb97fa4bb886374fade0630d3b32d7e, type: 2}
+  - {fileID: 11400000, guid: 13733f7240e0e5e40b3dbf34d51e7291, type: 2}

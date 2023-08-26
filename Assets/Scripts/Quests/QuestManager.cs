@@ -26,6 +26,9 @@ public class QuestManager : SingletonPersistent<QuestManager>, IQuestManager
     {
         quests[id].Status = QuestStatus.Completed;
         questCompleted.Raise(id);
+#if UNITY_EDITOR
+        Debug.Log($"Completed Quest with id {id}");
+#endif  
         foreach (string nextQuestId in quests[id].NextQuests) { AdvanceLockedQuest(nextQuestId); }
     }
 
@@ -36,6 +39,9 @@ public class QuestManager : SingletonPersistent<QuestManager>, IQuestManager
         {
             quests[id].Status = QuestStatus.Available;
             questAvailable.Raise(id);
+#if UNITY_EDITOR
+            Debug.Log($"Available Quest with id {id}");
+#endif  
         }
     }
 

@@ -1,6 +1,3 @@
-using FeTo.SOArchitecture;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoxPuzzleController : MonoBehaviour
@@ -13,61 +10,76 @@ public class BoxPuzzleController : MonoBehaviour
     [SerializeField]
     BoxPlaceholder[] placeholders;
     [SerializeField]
-    GameEvent puzzleSucceed;
+    QuestScriptableObject questSucced;
+    //GameEvent puzzleSucceed;
 
     string[] currentValues;
 
     string EMPTY_VALUE = "";
 
-    private void Start() {
+    private void Start()
+    {
         // Check if lenght of display and solution are the same
-        if (puzzleSettings.solution.Length != placeholders.Length) {
+        if (puzzleSettings.solution.Length != placeholders.Length)
+        {
             throw new System.Exception("Number of displays different to solution elements count");
         }
 
         // Initialce current state to empty
         currentValues = new string[puzzleSettings.solution.Length];
-        for (int i = 0; i < puzzleSettings.solution.Length; i++) {
+        for (int i = 0; i < puzzleSettings.solution.Length; i++)
+        {
             currentValues[i] = EMPTY_VALUE;
         }
     }
 
-    public void SetValue(string id, int position) {
-        if (!IsPositionInRange(position)) {
+    public void SetValue(string id, int position)
+    {
+        if (!IsPositionInRange(position))
+        {
             throw new System.Exception($"Position {position} out of range. Range: 0 - {currentValues.Length - 1}");
         }
         currentValues[position] = id;
         CheckSolution();
     }
 
-    public void UnsetValue(int position) {
-        if (!IsPositionInRange(position)) {
+    public void UnsetValue(int position)
+    {
+        if (!IsPositionInRange(position))
+        {
             throw new System.Exception($"Position {position} out of range. Range: 0 - {currentValues.Length - 1}");
         }
         currentValues[position] = null;
     }
 
-    private void CheckSolution() {
-        for (int i = 0; i < currentValues.Length; i++) {
-            if (currentValues[i] == EMPTY_VALUE) {
+    private void CheckSolution()
+    {
+        for (int i = 0; i < currentValues.Length; i++)
+        {
+            if (currentValues[i] == EMPTY_VALUE)
+            {
                 return;
             }
-            if (currentValues[i] != puzzleSettings.solution[i].id) {
+            if (currentValues[i] != puzzleSettings.solution[i].id)
+            {
                 return;
             }
         }
-        puzzleSucceed.Raise();
+        QuestManager.Instance.Complete(questSucced.Id);
         BlockResult();
     }
 
-    private void BlockResult() {
-        for(int i = 0; i < placeholders.Length; i++) {
+    private void BlockResult()
+    {
+        for (int i = 0; i < placeholders.Length; i++)
+        {
             placeholders[i].SucceedAnimation();
             placeholders[i].BlockPlacedBox();
         }
     }
 
-    private bool IsPositionInRange(int position) {
+    private bool IsPositionInRange(int position)
+    {
         return 0 <= position && position < currentValues.Length;
     }
 }

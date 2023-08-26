@@ -1,6 +1,4 @@
 using FeTo.SOArchitecture;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NumericPuzzleScriptableObject", menuName = "Scriptables/NumericPuzzleScriptableObject")]
@@ -12,6 +10,9 @@ public class NumericPuzzleScriptableObject : ScriptableObject
     public GameEvent puzzleSucceed;
     public GameEvent puzzleFail;
     public StringGameEvent screenTextUpdateEvent;
+
+    [Header("Quest")]
+    public QuestScriptableObject quest;
 
     [Header("Puzzle settings")]
     public string[] allStatus;

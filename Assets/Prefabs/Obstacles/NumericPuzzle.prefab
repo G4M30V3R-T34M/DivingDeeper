@@ -426,6 +426,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3195109593540118980}
   - component: {fileID: 4710630210718209368}
+  - component: {fileID: 5831306498332080734}
+  - component: {fileID: 2730574781601169954}
+  - component: {fileID: 8398286444577016236}
+  - component: {fileID: 2235806861392811028}
   m_Layer: 0
   m_Name: NumericPuzzle
   m_TagString: Untagged
@@ -471,6 +475,142 @@ MonoBehaviour:
   textUpdateEventListener: {fileID: 4732612672860844735}
   failEventListener: {fileID: 4699873893035133387}
   succeedEventListener: {fileID: 7622761446830761896}
+--- !u!114 &5831306498332080734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365976663886135597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e56ac3df90d8c4081a17ea3457bb02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 2749571140703150417}
+  - {fileID: 8052844679598514057}
+  - {fileID: 3112985454590730298}
+  colliders:
+  - {fileID: 40896961484893094}
+  - {fileID: 2304059256759707736}
+  - {fileID: 6316539589402879672}
+  activeColor: {r: 0.972549, g: 0.972549, b: 0.7294118, a: 1}
+  inactiveColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &2730574781601169954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365976663886135597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e723eb814c0478f4cb18ddc2b50202f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 0}
+  OnBlocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5831306498332080734}
+        m_TargetAssemblyTypeName: NumericPuzzleGameFlow, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAvailable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5831306498332080734}
+        m_TargetAssemblyTypeName: NumericPuzzleGameFlow, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5831306498332080734}
+        m_TargetAssemblyTypeName: NumericPuzzleGameFlow, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8398286444577016236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365976663886135597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaae6c3b9524f83418b2ac51b75ac472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 732bb5e698e683840ae6bf446c66bd31, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2730574781601169954}
+        m_TargetAssemblyTypeName: QuestBehaviour, Assembly-CSharp
+        m_MethodName: QuestAvailable
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2235806861392811028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365976663886135597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaae6c3b9524f83418b2ac51b75ac472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 75f0d0e7b20d27b49a0a0c7c05d5d6b2, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2730574781601169954}
+        m_TargetAssemblyTypeName: QuestBehaviour, Assembly-CSharp
+        m_MethodName: QuestCompleted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7831077584212746026
 GameObject:
   m_ObjectHideFlags: 0
