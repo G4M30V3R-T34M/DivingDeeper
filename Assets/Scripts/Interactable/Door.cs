@@ -13,4 +13,12 @@ public class Door : Interactable
     public override void Interact() {
         SceneManager.LoadScene((int)sceneToLoad);
     }
+
+    public override void HoldInteract() {
+        SceneManager.LoadScene((int)sceneToLoad);
+    }
+
+    public override void ReleaseHoldInteract() {
+        return;
+    }
 }

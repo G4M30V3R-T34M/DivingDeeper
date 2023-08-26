@@ -10,4 +10,12 @@ public class Conversation : Interactable
     public override void Interact() {
         conversationEvent.Raise();
     }
+
+    public override void HoldInteract() {
+        conversationEvent.Raise();
+    }
+
+    public override void ReleaseHoldInteract() {
+        return;
+    }
 }

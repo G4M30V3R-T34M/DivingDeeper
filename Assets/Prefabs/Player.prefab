@@ -347,3 +347,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInteractEvent: {fileID: 11400000, guid: 0e9805dc46a4356408d802d7b16bea47, type: 2}
+  playerHoldEvent: {fileID: 11400000, guid: fbc707c6943e4854abf4db88bee1357b, type: 2}
+  playerHoldReleaseEvent: {fileID: 11400000, guid: 86f1f59d8d940074284b68dbd5858943, type: 2}

@@ -35,7 +35,7 @@ public abstract class Interactable : MonoBehaviour
         );
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    protected virtual void OnTriggerEnter2D(Collider2D collision) {
         // As "Interactable" layer just collide with player we don't need to check
         // collision layer
         if (interactableFeedback != null) {
@@ -44,7 +44,7 @@ public abstract class Interactable : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision) {
+    protected virtual void OnTriggerExit2D(Collider2D collision) {
         // As "Interactable" layer just collide with player we don't need to check
         // collision layer
         if (interactableFeedback != null) {
@@ -54,4 +54,6 @@ public abstract class Interactable : MonoBehaviour
     }
 
     public abstract void Interact();
+    public abstract void HoldInteract();
+    public abstract void ReleaseHoldInteract();
 }
