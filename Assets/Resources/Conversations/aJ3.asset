@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc782d788a8483478a31b45ba8fbd90, type: 3}
+  m_Name: aJ3
+  m_EditorClassIdentifier: 
+  conversationParts:
+  - {fileID: 11400000, guid: 46ccdfebfdfc5334d86130f16e585d7e, type: 2}
+  - {fileID: 11400000, guid: e58b9f4afc68c264883d5d397aa8ec41, type: 2}
+  - {fileID: 11400000, guid: 05e874a7e8a212c469f1febd961c2d86, type: 2}
+  - {fileID: 11400000, guid: d40cd938b54f8e540b95b31139ed7e8e, type: 2}
