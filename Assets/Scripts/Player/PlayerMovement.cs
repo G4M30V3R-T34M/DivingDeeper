@@ -1,3 +1,4 @@
+using FeTo.SOArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // This class do too many things
+    // TODO divide responsabilities
     [SerializeField]
     PlayerMovementScriptableObject playerSettings;
 
@@ -14,19 +17,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Transform groundCheck;
 
-    private SpriteRenderer spriteRenderer;
-
     private float horizontal;
     private float vertical;
     private float gravityScale;
 
     private bool isFacingRight { get => transform.localScale.x < 0; }
     private bool isLadder = false;
+    private bool isFeared = false;
+    private float endRunAwayX;
+    private float speedFactor = 1;
     private LayerMask groundLayer;
 
-    private void Awake() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    private float FEAR_HORIZONTAL_VELOCITY = 1.2f;
 
     private void Start() {
         groundLayer = LayerMask.GetMask(Layer.Ground.ToString());
@@ -38,15 +40,31 @@ public class PlayerMovement : MonoBehaviour
             isFacingRight && horizontal < 0f) {
             Flip();
         }
+
+        if (isFeared) {
+            CheckIfTargetAchieved();
+        }
     }
+
     private void FixedUpdate() {
+
+        float horizontalSpeed = horizontal * playerSettings.speed * speedFactor;
         if (isLadder) {
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(horizontal * playerSettings.speed, vertical * playerSettings.speed);
+            rb.velocity = new Vector2(horizontalSpeed, vertical * playerSettings.speed);
         }
         else {
             rb.gravityScale = gravityScale;
-            rb.velocity = new Vector2(horizontal * playerSettings.speed, rb.velocity.y);
+            rb.velocity = new Vector2(horizontalSpeed, rb.velocity.y);
+        }
+    }
+
+    private void CheckIfTargetAchieved() {
+        if (isFacingRight && transform.position.x > endRunAwayX) {
+            ResetFearSpeed();
+        }
+        if (!isFacingRight && transform.position.x < endRunAwayX) {
+            ResetFearSpeed();
         }
     }
 
@@ -61,6 +79,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Move(InputAction.CallbackContext context) {
+        if (isFeared) {
+            return;
+        }
         horizontal = context.ReadValue<Vector2>().x;
         if (isLadder) {
             vertical = context.ReadValue<Vector2>().y;
@@ -70,6 +91,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Jump(InputAction.CallbackContext context) {
+        if (isFeared) {
+            return;
+        }
         if (context.performed && IsGrounded()) {
             rb.velocity = new Vector2(rb.velocity.x, playerSettings.jumpPower);
         }
@@ -79,9 +103,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void SetFearSpeed(float xPosition, bool humanIsFacingRight) {
+        horizontal = FEAR_HORIZONTAL_VELOCITY;
+        if (humanIsFacingRight) {
+            endRunAwayX = xPosition + playerSettings.runAwayDistance;
+        }
+        else {
+            endRunAwayX = xPosition - playerSettings.runAwayDistance;
+            horizontal *= -1f;
+        }
+    }
+
+    private void ResetFearSpeed() {
+        isFeared = false;
+        horizontal = 0;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.layer == (int)Layer.Ladder) {
             isLadder = true;
+        } else if(collision.gameObject.layer == (int)Layer.Slowdown) {
+            speedFactor -= playerSettings.fearDecrementFactor;
+        } else if (collision.gameObject.layer == (int)Layer.Fear) {
+            isFeared = true;
+            bool humanIsFacingRight = collision.transform.parent.GetComponent<HumanController>().isFacingRight;
+            SetFearSpeed(collision.transform.position.x, humanIsFacingRight);
         }
     }
 
@@ -89,6 +135,8 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.layer == (int)Layer.Ladder) {
             isLadder = false;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
-        }
+        } else if (collision.gameObject.layer == (int)Layer.Slowdown) {
+            speedFactor += playerSettings.fearDecrementFactor;
+        } 
     }
 }

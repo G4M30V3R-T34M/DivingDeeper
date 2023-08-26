@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa12187f84ba6dc4784950ab2fd97dc9, type: 3}
   m_Name: PlayerMovementScriptableObject
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 4
   jumpPower: 8
+  fearDecrementFactor: 0.95
+  runAwayDistance: 4.5

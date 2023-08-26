@@ -8,4 +8,6 @@ public class PlayerMovementScriptableObject : ScriptableObject
 {
     public float speed;
     public float jumpPower;
+    public float fearDecrementFactor;
+    public float runAwayDistance;
 }
