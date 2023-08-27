@@ -11,8 +11,9 @@ public class QuestManager : SingletonPersistent<QuestManager>, IQuestManager
 
     private Dictionary<string, QuestData> quests;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         quests = new Dictionary<string, QuestData>();
         LoadQuests();
     }

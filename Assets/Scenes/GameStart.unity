@@ -1049,10 +1049,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransitions
       objectReference: {fileID: 0}
-    - target: {fileID: 3751011677120735622, guid: 606a426ad17e9e64da724d976817203d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4149733261221407825, guid: 606a426ad17e9e64da724d976817203d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
