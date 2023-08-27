@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4997270815815115302}
   - component: {fileID: 203884182662254014}
   - component: {fileID: 8164848868160587220}
-  - component: {fileID: 6745960116488450504}
+  - component: {fileID: 6145485393945615886}
   m_Layer: 8
   m_Name: DoorAdulthoot
   m_TagString: Untagged
@@ -309,7 +309,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6745960116488450504
+--- !u!114 &6145485393945615886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4308765360022765825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d503f1659a864241868e51ff877a07e, type: 3}
+  m_Script: {fileID: 11500000, guid: ab8eabf398a9aa74989b70e6e13c7848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: fbc707c6943e4854abf4db88bee1357b, type: 2}
