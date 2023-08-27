@@ -1,7 +1,3 @@
-using FeTo.SOArchitecture;
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Animation))]
@@ -15,9 +11,9 @@ public class CharPuzzleController : MonoBehaviour
     [SerializeField]
     CharDisplayController[] allDisplays;
 
-    [Header("Success event")]
+    [Header("CompletedQuest")]
     [SerializeField]
-    GameEvent puzzleSucceed;
+    QuestScriptableObject quest;
 
     string[] currentValues;
     bool isSolved = false;
@@ -26,20 +22,24 @@ public class CharPuzzleController : MonoBehaviour
 
     Animator animatorController;
 
-    private void Awake() {
+    private void Awake()
+    {
         animatorController = GetComponent<Animator>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         // Check if lenght of display and solution are the same
-        if(puzleSettings.solution.Length != allDisplays.Length) {
+        if (puzleSettings.solution.Length != allDisplays.Length)
+        {
             throw new System.Exception("Number of displays different to solution elements count");
         }
 
 
         // Initialce current state to empty
         currentValues = new string[puzleSettings.solution.Length];
-        for(int i= 0; i < puzleSettings.solution.Length; i++) {
+        for (int i = 0; i < puzleSettings.solution.Length; i++)
+        {
             currentValues[i] = EMPTY_VALUE;
         }
 
@@ -48,15 +48,19 @@ public class CharPuzzleController : MonoBehaviour
         currentValues[index] = puzleSettings.solution[index];
         UpdateAllDisplays();
     }
-    private bool IsPositionInRange(int position) {
+    private bool IsPositionInRange(int position)
+    {
         return 0 <= position && position < currentValues.Length;
     }
 
-    public void UpdatePuzlePosition(int position) {
-        if (isSolved) {
+    public void UpdatePuzlePosition(int position)
+    {
+        if (isSolved)
+        {
             return;
         }
-        if (!IsPositionInRange(position)) {
+        if (!IsPositionInRange(position))
+        {
             throw new System.Exception($"Position {position} out of range. Range: 0 - {currentValues.Length - 1}");
         }
         UpdateAdjacent(position - 1);
@@ -66,39 +70,49 @@ public class CharPuzzleController : MonoBehaviour
         CheckSolution();
     }
 
-    private void UpdatePosition(int position) {
+    private void UpdatePosition(int position)
+    {
         string newValue = currentValues[position] == EMPTY_VALUE ? puzleSettings.solution[position] : EMPTY_VALUE;
         currentValues[position] = newValue;
     }
 
-    private void UpdateAdjacent(int position) {
-        if (!IsPositionInRange(position)) {
+    private void UpdateAdjacent(int position)
+    {
+        if (!IsPositionInRange(position))
+        {
             return;
         }
         UpdatePosition(position);
     }
 
-    private void UpdateAllDisplays() {
-        for(int i = 0; i < currentValues.Length; i++) {
+    private void UpdateAllDisplays()
+    {
+        for (int i = 0; i < currentValues.Length; i++)
+        {
             allDisplays[i].UpdateInfo(currentValues[i]);
         }
     }
 
-    private void CheckSolution() {
-        for(int i = 0; i < currentValues.Length; i++) {
-            if (currentValues[i] == EMPTY_VALUE) {
+    private void CheckSolution()
+    {
+        for (int i = 0; i < currentValues.Length; i++)
+        {
+            if (currentValues[i] == EMPTY_VALUE)
+            {
                 return;
             }
         }
-        puzzleSucceed.Raise();
+        QuestManager.Instance.Complete(quest.Id);
         animatorController.enabled = true;
         animatorController.SetTrigger("Succeed");
         DisableAllDisplays();
         this.enabled = false;
     }
 
-    private void DisableAllDisplays() {
-        for (int i = 0; i < allDisplays.Length; i++) {
+    private void DisableAllDisplays()
+    {
+        for (int i = 0; i < allDisplays.Length; i++)
+        {
             allDisplays[i].enabled = false;
         }
     }

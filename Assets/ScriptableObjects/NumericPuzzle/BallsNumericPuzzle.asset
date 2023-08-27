@@ -17,6 +17,7 @@ MonoBehaviour:
   puzzleSucceed: {fileID: 11400000, guid: 70ec8efa9de60e446a6851df313a59c8, type: 2}
   puzzleFail: {fileID: 11400000, guid: 1d4b031a09cc5ad4f844f93ced15641b, type: 2}
   screenTextUpdateEvent: {fileID: 11400000, guid: cea082ec390812e4da07f1d7e676c9ea, type: 2}
+  quest: {fileID: 11400000, guid: c7e3f60511364c54e8fb30b93ec0a5e5, type: 2}
   allStatus:
   - 0
   - 1

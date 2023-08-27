@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb3390a91bbf12b43bc47a808a016a53, type: 3}
-  m_Name: Intro_04
+  m_Name: Youth_0301
   m_EditorClassIdentifier: 
   previousQuestsAmount: 1
   startStatus: 0
   nextQuests:
-  - {fileID: 11400000, guid: 8c08fa8ab70825747b81809c12870145, type: 2}
+  - {fileID: 11400000, guid: eebfaa83562d36443981182af6b410d9, type: 2}
