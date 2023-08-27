@@ -19,6 +19,8 @@ public class QuestBehaviour : MonoBehaviour
 
     private void Start()
     {
+        if (quest == null) return;
+
         questManager = QuestManager.Instance;
         if (questManager.IsBloqued(quest.Id))
         {
@@ -34,11 +36,13 @@ public class QuestBehaviour : MonoBehaviour
 
     public void QuestAvailable(string questId)
     {
+        if (quest == null) return;
         if (questId == quest.Id) { OnAvailable?.Invoke(); }
     }
 
     public void QuestCompleted(string questId)
     {
+        if (quest == null) return;
         if (questId == quest.Id) { OnCompleted?.Invoke(); }
     }
 }

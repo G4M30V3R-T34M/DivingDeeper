@@ -12,5 +12,4 @@ public class GameDialogue : MonoBehaviour
     {
         ConversationPlayer.Instance.Play(conversation, quest);
     }
-
 }
