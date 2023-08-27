@@ -36,6 +36,9 @@ public class QuestBehaviour : MonoBehaviour
 
     public void QuestAvailable(string questId)
     {
+        print(questId);
+        print(quest.Id);
+        print(OnAvailable);
         if (quest == null) return;
         if (questId == quest.Id) { OnAvailable?.Invoke(); }
     }
