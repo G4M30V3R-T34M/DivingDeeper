@@ -50,7 +50,7 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
 
     public void PlayerInteraction()
     {
-        if (!isWriting && isConversationActive)
+        if (!isWriting && HasRemainingParts())
         {
             currentConversationPart++;
             StartCoroutine(PlayConversationPart());
@@ -60,9 +60,9 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
             continueObject.SetActive(true);
             StopAllCoroutines();
             dialogueText.text = currentConversation.conversationParts[currentConversationPart].text;
-            PerformConversationEndChecks();
         } else
         {
+            PerformConversationEndChecks();
             CleanDialogue();
         }
     }
@@ -108,8 +108,6 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
 
         isWriting = false;
         continueObject.SetActive(true);
-
-        PerformConversationEndChecks();
     }
 
     private void PerformConversationEndChecks()
@@ -123,6 +121,9 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
             }
         }
     }
+
+    private bool HasRemainingParts() =>
+        currentConversationPart < currentConversation.conversationParts.Count - 1;
 
     private void ActivateCurrentSpeaker()
     {
