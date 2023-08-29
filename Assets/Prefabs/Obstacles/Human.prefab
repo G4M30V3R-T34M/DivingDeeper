@@ -90,7 +90,8 @@ GameObject:
   - component: {fileID: 1548657411857000480}
   - component: {fileID: 2697695396024006831}
   - component: {fileID: 5604601562752771328}
-  - component: {fileID: 4338070394922502508}
+  - component: {fileID: 3948041507644938292}
+  - component: {fileID: 3826509863756485140}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -237,7 +238,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4338070394922502508
+--- !u!114 &3948041507644938292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,19 +247,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 5059762864307861836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e723eb814c0478f4cb18ddc2b50202f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a9176e16ff52e94599d1a685d54f502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 0}
-  OnBlocked:
+  reduceFear: {fileID: 11400000, guid: 5e1c58c3efd18a14b912b107caa5c662, type: 2}
+  deleteFear: {fileID: 11400000, guid: 9a9a17f7baca3894a95a479c70699366, type: 2}
+--- !u!114 &3826509863756485140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059762864307861836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaae6c3b9524f83418b2ac51b75ac472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 75f0d0e7b20d27b49a0a0c7c05d5d6b2, type: 2}
+  Response:
     m_PersistentCalls:
-      m_Calls: []
-  OnAvailable:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCompleted:
-    m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3948041507644938292}
+        m_TargetAssemblyTypeName: HumanQuestBehaviour, Assembly-CSharp
+        m_MethodName: QuestCompleted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8884095683768082336
 GameObject:
   m_ObjectHideFlags: 0

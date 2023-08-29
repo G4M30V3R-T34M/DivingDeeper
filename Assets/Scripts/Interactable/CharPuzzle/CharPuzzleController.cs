@@ -1,3 +1,4 @@
+using FeTo.SOArchitecture;
 using UnityEngine;
 
 [RequireComponent(typeof(Animation))]
@@ -12,6 +13,8 @@ public class CharPuzzleController : MonoBehaviour
     CharDisplayController[] allDisplays;
 
     [Header("CompletedQuest")]
+    [SerializeField]
+    GameEvent successEvent;
     [SerializeField]
     QuestScriptableObject quest;
 
@@ -103,6 +106,7 @@ public class CharPuzzleController : MonoBehaviour
             }
         }
         QuestManager.Instance.Complete(quest.Id);
+        successEvent?.Raise();
         animatorController.enabled = true;
         animatorController.SetTrigger("Succeed");
         DisableAllDisplays();

@@ -15,4 +15,4 @@ MonoBehaviour:
   previousQuestsAmount: 1
   startStatus: 0
   nextQuests:
-  - {fileID: 11400000, guid: 5ea1de671e5c25440bbb8624e41dbdab, type: 2}
+  - {fileID: 11400000, guid: a816b00621f92614696f4e9fa9654a38, type: 2}

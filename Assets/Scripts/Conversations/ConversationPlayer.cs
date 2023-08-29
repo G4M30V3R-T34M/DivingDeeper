@@ -27,6 +27,8 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
     bool isConversationActive = false;
     bool isWriting = false;
 
+    Coroutine currentCoroutine;
+
     private void Start()
     {
         CleanDialogue();
@@ -36,8 +38,12 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
     {
         if (isConversationActive && dialogueQuest != null)
         {
-            StopAllCoroutines();
             QuestManager.Instance.Complete(dialogueQuest.Id);
+        }
+
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
         }
 
         currentConversation = conversation;
@@ -45,7 +51,7 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
         dialogueQuest = quest;
         isConversationActive = true;
 
-        StartCoroutine(PlayConversationPart());
+        currentCoroutine = StartCoroutine(PlayConversationPart());
     }
 
     public void PlayerInteraction()
@@ -53,12 +59,12 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
         if (!isWriting && HasRemainingParts())
         {
             currentConversationPart++;
-            StartCoroutine(PlayConversationPart());
+            currentCoroutine = StartCoroutine(PlayConversationPart());
         } else if (isWriting)
         {
             isWriting = false;
             continueObject.SetActive(true);
-            StopAllCoroutines();
+            StopCoroutine(currentCoroutine);
             dialogueText.text = currentConversation.conversationParts[currentConversationPart].text;
         } else
         {
@@ -118,6 +124,7 @@ public class ConversationPlayer : SingletonPersistent<ConversationPlayer>
             if (dialogueQuest != null)
             {
                 QuestManager.Instance.Complete(dialogueQuest.Id);
+                dialogueQuest = null;
             }
         }
     }

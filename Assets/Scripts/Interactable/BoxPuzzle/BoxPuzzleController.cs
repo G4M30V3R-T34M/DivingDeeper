@@ -1,3 +1,4 @@
+using FeTo.SOArchitecture;
 using UnityEngine;
 
 public class BoxPuzzleController : MonoBehaviour
@@ -11,7 +12,8 @@ public class BoxPuzzleController : MonoBehaviour
     BoxPlaceholder[] placeholders;
     [SerializeField]
     QuestScriptableObject questSucced;
-    //GameEvent puzzleSucceed;
+    [SerializeField]
+    GameEvent puzzleSucceed;
 
     string[] currentValues;
 
@@ -66,6 +68,7 @@ public class BoxPuzzleController : MonoBehaviour
             }
         }
         QuestManager.Instance.Complete(questSucced.Id);
+        puzzleSucceed?.Raise();
         BlockResult();
     }
 
